@@ -11,14 +11,23 @@ class PostApi {
   }
 
   public async getAllPosts() {
-    const response = await PostRequests.getAllPosts()
-    
-    return response || []
+    try {
+      const response = await PostRequests.getAllPosts();
+      return response || [];
+    } catch (error) {
+      console.error("Error fetching all posts:", error);
+      throw error;
+    }
   }
 
   public async getPostById(id: string) {
-    const response = await PostRequests.getPostById(id)
-    return response || []
+    try {
+      const response = await PostRequests.getPostById(id);
+      return response || [];
+    } catch (error) {
+      console.error(`Error fetching post ${id}:`, error);
+      throw error;
+    }
   }
   
 }

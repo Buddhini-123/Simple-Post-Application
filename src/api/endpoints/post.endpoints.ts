@@ -1,8 +1,10 @@
 import axios from "axios"
 
+const API_BASE_URL = 'https://jsonplaceholder.typicode.com';
+
 const getAllPosts = async () => {
     try {
-        const { data } = await axios.get(`https://jsonplaceholder.typicode.com/posts`)
+        const { data } = await axios.get(`${API_BASE_URL}/posts`)
         return data
       } catch (error) {
         console.error('', error)
@@ -12,7 +14,7 @@ const getAllPosts = async () => {
 
 const getPostById = async (id: string) => {
     try {
-        const { data } = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
+        const { data } = await axios.get(`${API_BASE_URL}/posts/${id}`)
         return data
       } catch (error) {
         console.error('', error)
