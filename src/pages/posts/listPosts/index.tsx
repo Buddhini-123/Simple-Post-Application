@@ -18,14 +18,13 @@ function Main() {
     setViewModal,
     viewModal,
     postDetails,
-    isLoading
+    isLoading,
+    isLoadingTable
     // isLoading,
     // setIsLoading,
     // selectedRowId,
     // setSelectedRowId,
   } = ManagePostList()
-  
-console.log(isLoading);
 
   return (
     <>
@@ -35,7 +34,7 @@ console.log(isLoading);
     //   searchHandler={searchHandler}
       data={data}
       columns={columns}
-      isLoading={isLoading}
+      isLoadingTable={isLoadingTable}
     />
     
     <Dialog open={viewModal} onClose={() => setViewModal(false)}>

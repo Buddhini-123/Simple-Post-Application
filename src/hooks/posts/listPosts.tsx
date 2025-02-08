@@ -9,9 +9,10 @@ export function ManagePostList() {
   const [selectedRowId, setSelectedRowId] = useState<number | null>(null)
   const [viewModal, setViewModal] = useState(false)
   const [isLoading, setIsLoading] = useState(false);
+  const [isLoadingTable, setIsLoadingTable] = useState(false);
 
   const fetchPosts = async () => {
-    setIsLoading(true);
+    setIsLoadingTable(true);
     try {
           
         const res = await postService.postApi().getAllPosts()
@@ -30,7 +31,7 @@ export function ManagePostList() {
             )
               
             setData(formattedPosts)
-            setIsLoading(false);
+            setIsLoadingTable(false);
         } else {
             setData([])
             console.log('No data available for this page.')
@@ -85,6 +86,7 @@ export function ManagePostList() {
     selectedRowId,
     viewModal,
     postDetails,
-    isLoading
+    isLoading,
+    isLoadingTable
   }
 }

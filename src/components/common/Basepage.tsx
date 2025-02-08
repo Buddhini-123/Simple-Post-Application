@@ -22,10 +22,8 @@ export function BasePage(props: any) {
     title,
     data,
     columns,
-    isLoading
+    isLoadingTable
   } = props
-
-  console.log(isLoading);
   
   return (
     <>
@@ -37,7 +35,7 @@ export function BasePage(props: any) {
 
             <div>   
                 <div>
-                {isLoading ? ( 
+                {isLoadingTable ? ( 
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
                         <LoadingComponent />
                     </div> 
