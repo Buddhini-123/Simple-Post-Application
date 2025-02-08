@@ -19,11 +19,9 @@ function Main() {
     viewModal,
     postDetails,
     isLoading,
-    isLoadingTable
-    // isLoading,
-    // setIsLoading,
-    // selectedRowId,
-    // setSelectedRowId,
+    isLoadingTable,
+    filteredData,
+    setSearchQuery
   } = ManagePostList()
 
   return (
@@ -35,6 +33,8 @@ function Main() {
       data={data}
       columns={columns}
       isLoadingTable={isLoadingTable}
+      setSearchQuery={setSearchQuery}
+      filteredData={filteredData}
     />
     
     <Dialog open={viewModal} onClose={() => setViewModal(false)}>

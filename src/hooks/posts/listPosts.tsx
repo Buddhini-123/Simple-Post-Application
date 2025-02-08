@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useMemo } from 'react'
 import postService from '../../api/services/post.service.ts'; 
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import IconButton from '@mui/material/IconButton';
@@ -10,7 +10,21 @@ export function ManagePostList() {
   const [viewModal, setViewModal] = useState(false)
   const [isLoading, setIsLoading] = useState(false);
   const [isLoadingTable, setIsLoadingTable] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
 
+    // Filtered data based on search
+    const filteredData = useMemo(() => {
+        
+        if (!searchQuery) {
+            return data; // Return original data if search is empty
+        }
+        
+        const lowerCaseQuery = searchQuery.toLowerCase();
+        return data.filter(item => {
+            return item?.title.toLowerCase().includes(lowerCaseQuery); 
+        });
+    }, [data, searchQuery]);
+    
   const fetchPosts = async () => {
     setIsLoadingTable(true);
     try {
@@ -87,6 +101,9 @@ export function ManagePostList() {
     viewModal,
     postDetails,
     isLoading,
-    isLoadingTable
+    searchQuery,
+    isLoadingTable,
+    filteredData,
+    setSearchQuery
   }
 }

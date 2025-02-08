@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React from 'react'
 import TableComponent from '../../components/common/TableComponent.tsx'
 import '../../assets/styles/styles.css';
 import Footer from "../../components/Footer/Footer.tsx";
@@ -22,7 +22,11 @@ export function BasePage(props: any) {
     title,
     data,
     columns,
-    isLoadingTable
+    isLoadingTable,
+    searchQuery,
+    handleSearchChange,
+    filteredData,
+    setSearchQuery,
   } = props
   
   return (
@@ -34,13 +38,29 @@ export function BasePage(props: any) {
             </div>
 
             <div>   
+                {/* Search Bar */}
+                <div style={{ marginBottom: '15px' }}>
+                <input
+                    type="text"
+                    placeholder="Search by title..."
+                    value={searchQuery}
+                    onChange={e => setSearchQuery(e.target.value)}
+                    style={{
+                    padding: '8px',
+                    width: '100%',
+                    maxWidth: '300px',
+                    borderRadius: '4px',
+                    border: '1px solid #ccc',
+                    }}
+                />
+                </div>
                 <div>
                 {isLoadingTable ? ( 
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
                         <LoadingComponent />
                     </div> 
                 ) : data ? (
-                    <TableComponent data={data} columns={columns}/>
+                    <TableComponent data={filteredData} columns={columns}/>
                 ): null}
                 </div>
             </div>
