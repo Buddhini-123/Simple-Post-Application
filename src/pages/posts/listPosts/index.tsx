@@ -1,9 +1,8 @@
 import BasePage from '../../../components/common/Basepage.tsx'
 import { ManagePostList } from '../../../hooks/posts/listPosts.tsx'
 import React from 'react';
-import { IconButton, Dialog, DialogActions, DialogContent, DialogTitle, Button } from '@mui/material';
+import { Dialog, DialogActions, DialogContent, DialogTitle, Button } from '@mui/material';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
@@ -14,7 +13,6 @@ function Main() {
   const {
     data,
     columns,
-    selectedRowId,
     setViewModal,
     viewModal,
     postDetails,

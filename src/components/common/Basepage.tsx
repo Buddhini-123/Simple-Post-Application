@@ -24,7 +24,6 @@ export function BasePage(props: any) {
     columns,
     isLoadingTable,
     searchQuery,
-    handleSearchChange,
     filteredData,
     setSearchQuery,
   } = props
