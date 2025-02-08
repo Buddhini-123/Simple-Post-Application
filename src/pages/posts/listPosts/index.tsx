@@ -28,8 +28,6 @@ function Main() {
     <>
     <BasePage
       title="Post List"
-    //   searchPlaceholder={'Search'}
-    //   searchHandler={searchHandler}
       data={data}
       columns={columns}
       isLoadingTable={isLoadingTable}
